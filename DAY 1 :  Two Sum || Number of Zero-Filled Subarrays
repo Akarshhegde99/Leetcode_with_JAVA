@@ -1,0 +1,40 @@
+Two Sum :
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+       for(int i=0; i<nums.length; i++){
+        for(int j=i+1; j<nums.length; j++){  // or j=i+1
+            if(nums[i]+nums[j]==target){
+                int a[] = {i,j};
+                return a;
+            }
+        }
+       }
+       return null;
+    }
+}
+
+
+Number of Zero-Filled Subarrays :
+
+class Solution {
+public long zeroFilledSubarray(int nums[]) {
+    long totalZeros = 0;          // int : will give wrong ans when submitted
+        
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]==0){
+                long count =0;     // same as above
+                int j=i;
+
+                while(j<nums.length && nums[j] == 0){
+                    count++;
+                    j++;
+                }
+                i=j;
+                totalZeros += ((count*(count+1))/2);
+            }
+        }
+
+        return totalZeros;
+    }
+}
