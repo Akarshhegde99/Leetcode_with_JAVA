@@ -1,0 +1,33 @@
+Remove Element :
+
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int index =0;
+        for(int i : nums){
+            if(i != val){
+                nums[index++]=i;
+            }
+        }
+        return index;
+    }
+}
+
+
+
+
+Find Peak Element :
+
+class Solution {
+    public int findPeakElement(int[] nums) {
+        int left = 0;
+        int right = nums.length-1;
+        while(left<right){
+            int mid = left + (right - left)/2;
+            if (nums[mid]<nums[mid+1])
+               left = mid +1;
+            else
+                right = mid;
+        }
+        return left;
+    }
+}
